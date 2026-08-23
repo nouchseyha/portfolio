@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seyha — Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="sakura-canvas"></canvas>
+<div class="grid-overlay"></div>
+<div class="scanlines"></div>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- ══ NAV ══ -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="#home" class="logo"><span>S</span>eyha</a>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#portfolio" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link nav-cta">Contact</a>
+        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" id="closeBtn" aria-label="Close menu">&#10005;</button>
+    <nav class="mobile-nav">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#portfolio" class="mobile-link">Projects</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </nav>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="home" class="hero">
+    <div class="hero-kanji">DevOP</div>
+    <div class="hero-inner">
+        <div class="hero-left">
+            <p class="hero-eyebrow reveal"><span class="dot-pulse"></span> Open to opportunities</p>
+            <h1 class="hero-title reveal">
+                Hey, I'm<br>
+                <span class="name-highlight">Seyha</span>
+            </h1>
+            <div class="typewriter-wrap reveal">
+                <span>I am a&nbsp;</span><span id="typewriter"></span><span class="tw-cursor">|</span>
+            </div>
+            <p class="hero-desc reveal">
+                Software Developer & Machine Learning enthusiast crafting high-performance web applications. Turning complex problems into elegant, scalable solutions.
+            </p>
+            <div class="hero-actions reveal">
+                <a href="#contact" class="btn-primary">Hire Me <i class="bi bi-arrow-right"></i></a>
+                <a href="#" class="btn-outline"><i class="bi bi-download"></i> Download CV</a>
+            </div>
+            <div class="social-row reveal">
+                <a href="https://github.com/pheaktra-biu/myporfolio.git" class="soc-icon" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/seyha-nouch-437608418/" class="soc-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="https://web.facebook.com/vysal199" class="soc-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://t.me/Vysal333" class="soc-icon" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+            </div>
+        </div>
+        <div class="hero-right reveal">
+            <div class="hero-img-wrap">
+                <div class="img-ring ring-1"></div>
+                <div class="img-ring ring-2"></div>
+                <canvas class="ring-dots" id="ringCanvas" width="360" height="360"></canvas>
+                <img src="image/profile.JPG" alt="Seyha" class="hero-img">
+                <div class="float-badge badge-1"><i class="bi bi-code-slash"></i> Dev</div>
+                <div class="float-badge badge-2"><i class="bi bi-cpu"></i> ML</div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-bar"><div class="scroll-progress"></div></div>
+    </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section id="about" class="about">
+    <div class="kanji-bg" style="font-size:280px;bottom:-60px;right:-20px;opacity:.025;">私</div>
+    <div class="section-inner about-inner">
+        <div class="about-img-col reveal">
+            <div class="about-img-frame">
+                <div class="kanji-stamp">人</div>
+                <img src="image/profile.JPG" alt="Seyha">
+                <div class="frame-accent"></div>
+            </div>
+            <div class="mini-stats">
+                <div class="mini-stat">
+                    <span class="stat-n">1+</span>
+                    <span class="stat-l">Years Exp.</span>
+                </div>
+                <div class="mini-stat">
+                    <span class="stat-n">5+</span>
+                    <span class="stat-l">Projects</span>
+                </div>
+                <div class="mini-stat">
+                    <span class="stat-n">5</span>
+                    <span class="stat-l">Tech Skills</span>
+                </div>
+            </div>
+        </div>
+        <div class="about-content reveal" style="--d:.1s">
+            <p class="section-tag">About Me</p>
+            <h2 class="section-title">Professional <span>Web Developer</span><br>& ML Student</h2>
+            <p class="about-desc" style="margin-top:20px;">I specialize in building high-performance web applications using modern technologies. Currently deep-diving into Machine Learning to create smarter, data-driven experiences.</p>
+            <p class="about-desc">I believe in writing clean, purposeful code that solves real-world problems — always looking for the next challenge to take on.</p>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <span class="detail-key">Name</span>
+                    <span class="detail-val">Seyha</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-key">Location</span>
+                    <span class="detail-val">Phnom Penh, Cambodia</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-key">Email</span>
+                    <span class="detail-val">Aseyhaslowdad@gmail.com</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-key">Status</span>
+                    <span class="detail-val available">● Available</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section id="skills" class="skills">
+    <div class="kanji-bg" style="font-size:260px;top:-40px;left:-30px;">技</div>
+    <div class="section-inner col">
+        <div class="section-head reveal">
+            <p class="section-tag">Skills</p>
+            <h2 class="section-title">My <span>Tech Stack</span></h2>
+        </div>
+        <div class="skills-layout">
+            <div class="skills-grid">
+                <div class="skill-card reveal" style="--d:.05s">
+                    <div class="sk-icon"><i class="bi bi-filetype-html"></i></div>
+                    <div class="sk-info">
+                        <div class="sk-top"><span>HTML5</span><span class="sk-pct">90%</span></div>
+                        <div class="sk-track"><div class="sk-fill" style="--w:90%"></div></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="--d:.1s">
+                    <div class="sk-icon"><i class="bi bi-filetype-css"></i></div>
+                    <div class="sk-info">
+                        <div class="sk-top"><span>CSS3</span><span class="sk-pct">85%</span></div>
+                        <div class="sk-track"><div class="sk-fill" style="--w:85%"></div></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="--d:.15s">
+                    <div class="sk-icon"><i class="bi bi-filetype-js"></i></div>
+                    <div class="sk-info">
+                        <div class="sk-top"><span>JavaScript</span><span class="sk-pct">50%</span></div>
+                        <div class="sk-track"><div class="sk-fill" style="--w:50%"></div></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="--d:.2s">
+                    <div class="sk-icon"><i class="bi bi-bootstrap"></i></div>
+                    <div class="sk-info">
+                        <div class="sk-top"><span>Bootstrap</span><span class="sk-pct">75%</span></div>
+                        <div class="sk-track"><div class="sk-fill" style="--w:75%"></div></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="--d:.25s">
+                    <div class="sk-icon"><i class="bi bi-filetype-py"></i></div>
+                    <div class="sk-info">
+                        <div class="sk-top"><span>Laravel</span><span class="sk-pct">70%</span></div>
+                        <div class="sk-track"><div class="sk-fill" style="--w:70%"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-side reveal" style="--d:.15s">
+                <div class="skills-orb-wrap">
+                    <div class="orb-ring"></div>
+                    <div class="orb-ring"></div>
+                    <div class="orb-core">S</div>
+                </div>
+                <div>
+                    <h3 style="font-family:var(--serif);font-size:1.6rem;font-weight:900;margin-bottom:10px;">Crafting with<br><span style="color:var(--sakura);">Precision</span></h3>
+                    <p style="color:var(--muted);font-size:.9rem;max-width:280px;line-height:1.8;">Every skill bar represents hours of practice, real projects, and a commitment to continuous growth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section id="services" class="services">
+    <div class="kanji-bg" style="font-size:250px;bottom:-40px;right:-20px;">仕</div>
+    <div class="section-inner col">
+        <div class="section-head reveal">
+            <p class="section-tag">Services</p>
+            <h2 class="section-title">What I <span>Offer</span></h2>
+        </div>
+        <div class="svc-grid">
+            <div class="svc-card reveal" style="--d:.05s">
+                <span class="svc-num">01</span>
+                <div class="svc-icon-wrap"><i class="bi bi-window-stack svc-icon"></i></div>
+                <h3>Web Development</h3>
+                <p>Building fast, responsive, and modern websites using HTML, CSS, JavaScript, and current frameworks — pixel-perfect on every screen.</p>
+                <div class="svc-arrow"><i class="bi bi-arrow-up-right"></i></div>
+            </div>
+            <div class="svc-card reveal" style="--d:.15s">
+                <span class="svc-num">02</span>
+                <div class="svc-icon-wrap"><i class="bi bi-cpu-fill svc-icon"></i></div>
+                <h3>ML Integration</h3>
+                <p>Bringing intelligence to applications with Python-based machine learning models, enabling smarter and more data-driven user experiences.</p>
+                <div class="svc-arrow"><i class="bi bi-arrow-up-right"></i></div>
+            </div>
+            <div class="svc-card reveal" style="--d:.25s">
+                <span class="svc-num">03</span>
+                <div class="svc-icon-wrap"><i class="bi bi-phone svc-icon"></i></div>
+                <h3>Responsive Design</h3>
+                <p>Every project is crafted to look and function flawlessly across all screen sizes — from phones to large desktop displays.</p>
+                <div class="svc-arrow"><i class="bi bi-arrow-up-right"></i></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ PORTFOLIO ══ -->
+<section id="portfolio" class="portfolio">
+    <div class="kanji-bg" style="font-size:240px;top:-30px;left:-20px;">作</div>
+    <div class="section-inner col" style="align-items:center;">
+        <div class="section-head reveal" style="align-self:flex-start;">
+            <p class="section-tag">Portfolio</p>
+            <h2 class="section-title">Selected <span>Projects</span></h2>
+        </div>
+        <div class="proj-list" style="position:relative;z-index:2;">
+            <div class="proj-card reveal" style="--d:.05s">
+                <span class="proj-num">01</span>
+                <div class="proj-meta">
+                    <span class="proj-tag">Web</span>
+                    <span class="proj-year">2026</span>
+                </div>
+                <div class="proj-body">
+                    <h3>Personal Portfolio</h3>
+                    <p>A responsive, animated developer portfolio showcasing skills, services, and projects. Built with vanilla HTML, CSS, and JavaScript.</p>
+                    <div class="proj-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                </div>
+                <a href="index.html" class="proj-link" aria-label="View project"><i class="bi bi-arrow-up-right"></i></a>
+            </div>
+            <div class="proj-card reveal" style="--d:.15s">
+                <span class="proj-num">02</span>
+                <div class="proj-meta">
+                    <span class="proj-tag">Weather</span>
+                    <span class="proj-year">2025</span>
+                </div>
+                <div class="proj-body">
+                    <h3>Weather App</h3>
+                    <p>A responsive weather app that shows the current weather conditions in a city.</p>
+                    <div class="proj-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                </div>
+                <a href="https://weatherappidea.vercel.app" class="proj-link" aria-label="View project"><i class="bi bi-arrow-up-right"></i></a>
+            </div>
+            <div class="proj-card reveal" style="--d:.25s">
+                <span class="proj-num">03</span>
+                <div class="proj-meta">
+                    <span class="proj-tag">Pizza</span>
+                    <span class="proj-year">2025</span>
+                </div>
+                <div class="proj-body">
+                    <h3>Pizza App</h3>
+                    <p>A responsive pizza app that shows the current pizza prices and offers.</p>
+                    <div class="proj-tech"><span>HTML</span><span>CSS</span><span>C#</span><span>.NET</span></div>
+                </div>
+                <a href="https://pizzaapp-pizzaapp.up.railway.app" class="proj-link" aria-label="View project"><i class="bi bi-arrow-up-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact" class="contact">
+    <div class="kanji-bg" style="font-size:230px;bottom:-30px;right:-10px;">連</div>
+    <div class="section-inner contact-inner">
+        <div class="contact-left reveal">
+            <p class="section-tag">Contact</p>
+            <h2 class="section-title">Let's Work<br><span>Together</span></h2>
+            <p class="contact-sub">Have a project or want to collaborate? I'd love to hear from you.</p>
+            <div class="contact-links">
+                <a href="mailto:seyhazadow@gmail.com" class="c-link"><i class="bi bi-envelope"></i>seyhazadow@gmail.com</a>
+                <a href="tel:+85588110427" class="c-link"><i class="bi bi-phone"></i>+855 88 110 427</a>
+                <div class="c-link"><i class="bi bi-geo-alt"></i>Phnom Penh, Cambodia</div>
+            </div>
+        </div>
+        <div class="contact-right reveal" style="--d:.1s">
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="email@gmail.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Type your message..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary wide">
+                    Send Message <i class="bi bi-send"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+    <div class="footer-inner">
+        <a href="#home" class="footer-logo"><span>ヴ</span>ysal</a>
+        <p>&copy; 2026 Seyha. All Rights Reserved.</p>
+        <div class="footer-socials">
+            <a href="https://github.com/pheaktra-biu/myporfolio.git" title="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/prak-sereyvisal1001" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://t.me/the_seyha" title="Telegram"><i class="bi bi-telegram"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
