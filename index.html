@@ -9,6 +9,262 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --cv-bg: rgba(255,255,255,.02);
+            --cv-border: rgba(255,255,255,.08);
+            --cv-soft: rgba(107, 248, 255, .06);
+            --cv-strong: #6bfff0;
+            --cv-gold: #ffd166;
+        }
+
+        .cv-page {
+            min-height: 100vh;
+            padding: 120px 5% 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cv-shell {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--cv-bg);
+            border: 1px solid var(--cv-border);
+            border-radius: 18px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+
+        .cv-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 34px 34px 22px;
+            border-bottom: 1px solid var(--cv-border);
+            background: linear-gradient(135deg, rgba(107, 248, 255, 0.04), rgba(255,107,157,0.02));
+        }
+
+        .cv-name-block h1 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.1;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .cv-role {
+            font-family: var(--mono);
+            color: var(--sakura);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: .7rem;
+        }
+
+        .cv-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            justify-content: flex-end;
+            color: var(--muted);
+            font-family: var(--head);
+            font-size: .84rem;
+        }
+
+        .cv-contact span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--cv-border);
+            padding: 8px 12px;
+            border-radius: 999px;
+        }
+
+        .cv-contact i {
+            color: var(--sakura);
+        }
+
+        .cv-body {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 0;
+        }
+
+        .cv-aside,
+        .cv-main {
+            padding: 28px 24px 20px;
+        }
+
+        .cv-aside {
+            background: rgba(255,255,255,.015);
+            border-right: 1px solid var(--cv-border);
+        }
+
+        .cv-main {
+            background: rgba(255,255,255,.008);
+        }
+
+        .cv-section {
+            margin-bottom: 28px;
+        }
+
+        .cv-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-section-title {
+            font-family: var(--mono);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: .72rem;
+            color: var(--sakura);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cv-section-title::before {
+            content: "";
+            width: 18px;
+            height: 1px;
+            background: var(--sakura);
+            display: inline-block;
+        }
+
+        .cv-card {
+            background: rgba(255,255,255,.02);
+            border: 1px solid var(--cv-border);
+            border-radius: 12px;
+            padding: 16px 18px;
+        }
+
+        .cv-card p,
+        .cv-card li,
+        .cv-item p,
+        .cv-item li {
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: .9rem;
+        }
+
+        .cv-card ul,
+        .cv-item ul {
+            list-style: disc;
+            padding-left: 18px;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(107, 248, 255, 0.06);
+            border: 1px solid rgba(107, 248, 255, 0.18);
+            color: var(--text);
+            padding: 7px 10px;
+            border-radius: 8px;
+            font-family: var(--head);
+            font-size: .8rem;
+            letter-spacing: .5px;
+        }
+
+        .cv-item {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--cv-border);
+        }
+
+        .cv-item:last-child {
+            border-bottom: none;
+        }
+
+        .cv-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .cv-item-header h3 {
+            font-size: 1.06rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .cv-item-header span {
+            font-family: var(--mono);
+            color: var(--muted);
+            font-size: .7rem;
+            letter-spacing: 1px;
+        }
+
+        .cv-item p {
+            margin-bottom: 10px;
+        }
+
+        .cv-item ul {
+            margin-top: 6px;
+        }
+
+        .cv-item li {
+            margin-bottom: 5px;
+        }
+
+        .cv-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .cv-btns .btn-primary,
+        .cv-btns .btn-outline {
+            font-size: .76rem;
+            padding: 10px 18px;
+        }
+
+        @media (max-width: 900px) {
+            .cv-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cv-contact {
+                justify-content: flex-start;
+            }
+
+            .cv-body {
+                grid-template-columns: 1fr;
+            }
+
+            .cv-aside {
+                border-right: none;
+                border-bottom: 1px solid var(--cv-border);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .cv-page {
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+
+            .cv-header,
+            .cv-aside,
+            .cv-main {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .cv-item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -26,6 +282,7 @@
         <div class="nav-links">
             <a href="#home" class="nav-link active">Home</a>
             <a href="#about" class="nav-link">About</a>
+            
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#services" class="nav-link">Services</a>
             <a href="#portfolio" class="nav-link">Projects</a>
@@ -49,51 +306,141 @@
         <a href="#contact" class="mobile-link">Contact</a>
     </nav>
 </div>
-
 <!-- ══ HERO ══ -->
 <section id="home" class="hero">
-    <div class="hero-kanji">DevOP</div>
+
+    <div class="hero-kanji">DEV</div>
+
     <div class="hero-inner">
+
+        <!-- LEFT -->
         <div class="hero-left">
-            <p class="hero-eyebrow reveal"><span class="dot-pulse"></span> Open to opportunities</p>
+
+            <p class="hero-eyebrow reveal">
+                <span class="dot-pulse"></span>
+                Open to opportunities
+            </p>
+
             <h1 class="hero-title reveal">
                 Hey, I'm<br>
                 <span class="name-highlight">Seyha</span>
             </h1>
+
             <div class="typewriter-wrap reveal">
-                <span>I am a&nbsp;</span><span id="typewriter"></span><span class="tw-cursor">|</span>
+                <span>I am a&nbsp;</span>
+                <span id="typewriter"></span>
+                <span class="tw-cursor">|</span>
             </div>
+
             <p class="hero-desc reveal">
-                Software Developer & Machine Learning enthusiast crafting high-performance web applications. Turning complex problems into elegant, scalable solutions.
+                Information Technology &amp; Science student passionate about
+                software development, web technologies, databases, and computer
+                systems. Building practical solutions, solving technical
+                problems, and continuously learning new technologies.
             </p>
+
             <div class="hero-actions reveal">
-                <a href="#contact" class="btn-primary">Hire Me <i class="bi bi-arrow-right"></i></a>
-                <a href="#" class="btn-outline"><i class="bi bi-download"></i> Download CV</a>
+
+                <a href="#contact" class="btn-primary">
+                    Hire Me
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+                <a href="CV.html" class="btn-outline">
+                    <i class="bi bi-file-earmark-person"></i>
+                    View / Download CV
+                </a>
+
             </div>
+
             <div class="social-row reveal">
-                <a href="https://github.com/pheaktra-biu/myporfolio.git" class="soc-icon" aria-label="GitHub"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/seyha-nouch-437608418/" class="soc-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                <a href="https://web.facebook.com/vysal199" class="soc-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                <a href="https://t.me/Vysal333" class="soc-icon" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+
+                <a href="https://www.linkedin.com/in/seyha-nouch-437608418/"
+                   class="soc-icon"
+                   aria-label="LinkedIn"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+
+                <a href="https://web.facebook.com/zieh.ha.2025"
+                   class="soc-icon"
+                   aria-label="Facebook"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="bi bi-facebook"></i>
+                </a>
+
+                <a href="https://github.com/nouchseyha"
+                   class="soc-icon"
+                   aria-label="GitHub"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="bi bi-github"></i>
+                </a>
+
             </div>
+
         </div>
+
+
+        <!-- RIGHT -->
         <div class="hero-right reveal">
+
             <div class="hero-img-wrap">
+
                 <div class="img-ring ring-1"></div>
                 <div class="img-ring ring-2"></div>
-                <canvas class="ring-dots" id="ringCanvas" width="360" height="360"></canvas>
-                <img src="image/profile.JPG" alt="Seyha" class="hero-img">
-                <div class="float-badge badge-1"><i class="bi bi-code-slash"></i> Dev</div>
-                <div class="float-badge badge-2"><i class="bi bi-cpu"></i> ML</div>
-            </div>
-        </div>
-    </div>
-    <div class="scroll-hint">
-        <span>Scroll</span>
-        <div class="scroll-bar"><div class="scroll-progress"></div></div>
-    </div>
-</section>
 
+                <canvas
+                    class="ring-dots"
+                    id="ringCanvas"
+                    width="360"
+                    height="360">
+                </canvas>
+
+                <img
+                    src="https://scontent.fpnh5-6.fna.fbcdn.net/v/t39.30808-6/779322911_1569226891525189_1622201441897694463_n.jpg?stp=dst-jpg_tt6&cstp=mx1280x853&ctp=s1280x853&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHLhF2yHYUa0IQzfquzEhKRoXVHeyp44yOhdUd7KnjjI6qpKFKE4Xq0lmwmAQFy_MAHZaQqnqogldx6AL_MgMCP&_nc_ohc=IgNbmUJfbfgQ7kNvwEqrITN&_nc_oc=AdpG0CTDPQy38eXyxqEOP_Um9HIFIVUXmmnq3lHLhh5M9qjYnqY4J9UCAsXl8LgG_gQ&_nc_zt=23&_nc_ht=scontent.fpnh5-6.fna&_nc_gid=3w9CHYoZxhbmJliRzcVXIw&_nc_ss=7b2a8&oh=00_AQLxVonL4-eDDu5XeQnosDYuuqWLgre8Sy7i_cXi9xVdJw&oe=6AB3473A"
+                    alt="Nouch Seyha"
+                    class="hero-img"
+                >
+
+                <!-- Floating badges -->
+                <div class="float-badge badge-1">
+                    <i class="bi bi-code-slash"></i>
+                    Web Dev
+                </div>
+
+                <div class="float-badge badge-2">
+                    <i class="bi bi-database"></i>
+                    Database
+                </div>
+
+                 <div class="float-badge badge-3">
+                    <i class="bi bi-database"></i>
+                    API
+                </div>
+
+              
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Scroll -->
+    <div class="scroll-hint">
+
+        <span>Scroll</span>
+
+        <div class="scroll-bar">
+            <div class="scroll-progress"></div>
+        </div>
+
+    </div>
+
+</section>
 <!-- ══ ABOUT ══ -->
 <section id="about" class="about">
     <div class="kanji-bg" style="font-size:280px;bottom:-60px;right:-20px;opacity:.025;">私</div>
@@ -101,7 +448,7 @@
         <div class="about-img-col reveal">
             <div class="about-img-frame">
                 <div class="kanji-stamp">人</div>
-                <img src="image/profile.JPG" alt="Seyha">
+                <img src="https://scontent.fpnh5-6.fna.fbcdn.net/v/t39.30808-6/779322911_1569226891525189_1622201441897694463_n.jpg?stp=dst-jpg_tt6&cstp=mx1280x853&ctp=s1280x853&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF7eDMNPsnvzo9PeyRdyORJoXVHeyp44yOhdUd7KnjjIwajQxnHoqqLUcjy6g9XCMq4A3wr6YhVgL_SWJ__1b0w&_nc_ohc=IgNbmUJfbfgQ7kNvwEqrITN&_nc_oc=AdpG0CTDPQy38eXyxqEOP_Um9HIFIVUXmmnq3lHLhh5M9qjYnqY4J9UCAsXl8LgG_gQ&_nc_zt=23&_nc_ht=scontent.fpnh5-6.fna&_nc_gid=l9IvMb1KY80Y4bMCaTw6vw&_nc_ss=7b2a8&oh=00_AQInCOAeG9QOnhK1MnHrTUqXyIVn3EBWYqUxrqhP5AA9rg&oe=6AB3473A" alt="Seyha">
                 <div class="frame-accent"></div>
             </div>
             <div class="mini-stats">
@@ -135,7 +482,7 @@
                 </div>
                 <div class="detail-item">
                     <span class="detail-key">Email</span>
-                    <span class="detail-val">Aseyhaslowdad@gmail.com</span>
+                    <span class="detail-val">seyhazadow@gmail.com</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-key">Status</span>
@@ -146,152 +493,341 @@
     </div>
 </section>
 
-<!-- ══ SKILLS ══ -->
-<section id="skills" class="skills">
-    <div class="kanji-bg" style="font-size:260px;top:-40px;left:-30px;">技</div>
-    <div class="section-inner col">
-        <div class="section-head reveal">
-            <p class="section-tag">Skills</p>
-            <h2 class="section-title">My <span>Tech Stack</span></h2>
-        </div>
-        <div class="skills-layout">
-            <div class="skills-grid">
-                <div class="skill-card reveal" style="--d:.05s">
-                    <div class="sk-icon"><i class="bi bi-filetype-html"></i></div>
-                    <div class="sk-info">
-                        <div class="sk-top"><span>HTML5</span><span class="sk-pct">90%</span></div>
-                        <div class="sk-track"><div class="sk-fill" style="--w:90%"></div></div>
+            <!-- ══ SKILLS ══ -->
+            <section id="skills" class="skills">
+                <div class="kanji-bg" style="font-size:260px;top:-40px;left:-30px;">技</div>
+                <div class="section-inner col">
+                    <div class="section-head reveal">
+                        <p class="section-tag">Skills</p>
+                        <h2 class="section-title">My <span>Tech Stack</span></h2>
                     </div>
-                </div>
-                <div class="skill-card reveal" style="--d:.1s">
-                    <div class="sk-icon"><i class="bi bi-filetype-css"></i></div>
-                    <div class="sk-info">
-                        <div class="sk-top"><span>CSS3</span><span class="sk-pct">85%</span></div>
-                        <div class="sk-track"><div class="sk-fill" style="--w:85%"></div></div>
-                    </div>
-                </div>
-                <div class="skill-card reveal" style="--d:.15s">
-                    <div class="sk-icon"><i class="bi bi-filetype-js"></i></div>
-                    <div class="sk-info">
-                        <div class="sk-top"><span>JavaScript</span><span class="sk-pct">50%</span></div>
-                        <div class="sk-track"><div class="sk-fill" style="--w:50%"></div></div>
-                    </div>
-                </div>
-                <div class="skill-card reveal" style="--d:.2s">
-                    <div class="sk-icon"><i class="bi bi-bootstrap"></i></div>
-                    <div class="sk-info">
-                        <div class="sk-top"><span>Bootstrap</span><span class="sk-pct">75%</span></div>
-                        <div class="sk-track"><div class="sk-fill" style="--w:75%"></div></div>
-                    </div>
-                </div>
-                <div class="skill-card reveal" style="--d:.25s">
-                    <div class="sk-icon"><i class="bi bi-filetype-py"></i></div>
-                    <div class="sk-info">
-                        <div class="sk-top"><span>Laravel</span><span class="sk-pct">70%</span></div>
-                        <div class="sk-track"><div class="sk-fill" style="--w:70%"></div></div>
-                    </div>
+                    <div class="skills-layout">
+                        <div class="skills-grid">
+                            <!-- HTML -->
+            <div class="skill-card reveal" style="--d:.10s">
+                <div class="sk-icon"><i class="bi bi-filetype-html"></i></div>
+                <div class="sk-info">
+                    <div class="sk-top"><span>HTML</span><span class="sk-pct">85%</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="--w:85%"></div></div>
                 </div>
             </div>
-            <div class="skills-side reveal" style="--d:.15s">
-                <div class="skills-orb-wrap">
-                    <div class="orb-ring"></div>
-                    <div class="orb-ring"></div>
-                    <div class="orb-core">S</div>
-                </div>
-                <div>
-                    <h3 style="font-family:var(--serif);font-size:1.6rem;font-weight:900;margin-bottom:10px;">Crafting with<br><span style="color:var(--sakura);">Precision</span></h3>
-                    <p style="color:var(--muted);font-size:.9rem;max-width:280px;line-height:1.8;">Every skill bar represents hours of practice, real projects, and a commitment to continuous growth.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ══ SERVICES ══ -->
-<section id="services" class="services">
-    <div class="kanji-bg" style="font-size:250px;bottom:-40px;right:-20px;">仕</div>
-    <div class="section-inner col">
-        <div class="section-head reveal">
-            <p class="section-tag">Services</p>
-            <h2 class="section-title">What I <span>Offer</span></h2>
-        </div>
-        <div class="svc-grid">
-            <div class="svc-card reveal" style="--d:.05s">
-                <span class="svc-num">01</span>
-                <div class="svc-icon-wrap"><i class="bi bi-window-stack svc-icon"></i></div>
-                <h3>Web Development</h3>
-                <p>Building fast, responsive, and modern websites using HTML, CSS, JavaScript, and current frameworks — pixel-perfect on every screen.</p>
-                <div class="svc-arrow"><i class="bi bi-arrow-up-right"></i></div>
+            <!-- CSS -->
+            <div class="skill-card reveal" style="--d:.15s">
+                <div class="sk-icon"><i class="bi bi-filetype-css"></i></div>
+                <div class="sk-info">
+                    <div class="sk-top"><span>CSS</span><span class="sk-pct">80%</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="--w:80%"></div></div>
+                </div>
             </div>
-            <div class="svc-card reveal" style="--d:.15s">
-                <span class="svc-num">02</span>
-                <div class="svc-icon-wrap"><i class="bi bi-cpu-fill svc-icon"></i></div>
-                <h3>ML Integration</h3>
-                <p>Bringing intelligence to applications with Python-based machine learning models, enabling smarter and more data-driven user experiences.</p>
-                <div class="svc-arrow"><i class="bi bi-arrow-up-right"></i></div>
-            </div>
-            <div class="svc-card reveal" style="--d:.25s">
-                <span class="svc-num">03</span>
-                <div class="svc-icon-wrap"><i class="bi bi-phone svc-icon"></i></div>
-                <h3>Responsive Design</h3>
-                <p>Every project is crafted to look and function flawlessly across all screen sizes — from phones to large desktop displays.</p>
-                <div class="svc-arrow"><i class="bi bi-arrow-up-right"></i></div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ══ PORTFOLIO ══ -->
-<section id="portfolio" class="portfolio">
-    <div class="kanji-bg" style="font-size:240px;top:-30px;left:-20px;">作</div>
-    <div class="section-inner col" style="align-items:center;">
-        <div class="section-head reveal" style="align-self:flex-start;">
-            <p class="section-tag">Portfolio</p>
-            <h2 class="section-title">Selected <span>Projects</span></h2>
-        </div>
-        <div class="proj-list" style="position:relative;z-index:2;">
-            <div class="proj-card reveal" style="--d:.05s">
-                <span class="proj-num">01</span>
-                <div class="proj-meta">
-                    <span class="proj-tag">Web</span>
-                    <span class="proj-year">2026</span>
+            <!-- JavaScript -->
+            <div class="skill-card reveal" style="--d:.20s">
+                <div class="sk-icon"><i class="bi bi-filetype-js"></i></div>
+                <div class="sk-info">
+                    <div class="sk-top"><span>JavaScript</span><span class="sk-pct">70%</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="--w:70%"></div></div>
                 </div>
-                <div class="proj-body">
-                    <h3>Personal Portfolio</h3>
-                    <p>A responsive, animated developer portfolio showcasing skills, services, and projects. Built with vanilla HTML, CSS, and JavaScript.</p>
-                    <div class="proj-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-                </div>
-                <a href="index.html" class="proj-link" aria-label="View project"><i class="bi bi-arrow-up-right"></i></a>
             </div>
-            <div class="proj-card reveal" style="--d:.15s">
-                <span class="proj-num">02</span>
-                <div class="proj-meta">
-                    <span class="proj-tag">Weather</span>
-                    <span class="proj-year">2025</span>
+
+            <!-- Bootstrap -->
+            <div class="skill-card reveal" style="--d:.25s">
+                <div class="sk-icon"><i class="bi bi-bootstrap"></i></div>
+                <div class="sk-info">
+                    <div class="sk-top"><span>Bootstrap</span><span class="sk-pct">80%</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="--w:80%"></div></div>
                 </div>
-                <div class="proj-body">
-                    <h3>Weather App</h3>
-                    <p>A responsive weather app that shows the current weather conditions in a city.</p>
-                    <div class="proj-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-                </div>
-                <a href="https://weatherappidea.vercel.app" class="proj-link" aria-label="View project"><i class="bi bi-arrow-up-right"></i></a>
             </div>
-            <div class="proj-card reveal" style="--d:.25s">
-                <span class="proj-num">03</span>
-                <div class="proj-meta">
-                    <span class="proj-tag">Pizza</span>
-                    <span class="proj-year">2025</span>
+
+            <!-- C# -->
+            <div class="skill-card reveal" style="--d:.30s">
+                <div class="sk-icon"><i class="bi bi-code-slash"></i></div>
+                <div class="sk-info">
+                    <div class="sk-top"><span>C# / OOP</span><span class="sk-pct">75%</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="--w:75%"></div></div>
                 </div>
-                <div class="proj-body">
-                    <h3>Pizza App</h3>
-                    <p>A responsive pizza app that shows the current pizza prices and offers.</p>
-                    <div class="proj-tech"><span>HTML</span><span>CSS</span><span>C#</span><span>.NET</span></div>
-                </div>
-                <a href="https://pizzaapp-pizzaapp.up.railway.app" class="proj-link" aria-label="View project"><i class="bi bi-arrow-up-right"></i></a>
             </div>
-        </div>
-    </div>
-</section>
+
+            <!-- PHP -->
+            <div class="skill-card reveal" style="--d:.35s">
+                <div class="sk-icon"><i class="bi bi-filetype-php"></i></div>
+                <div class="sk-info">
+                    <div class="sk-top"><span>PHP & Laravel</span><span class="sk-pct">70%</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="--w:70%"></div></div>
+                </div>
+            </div>
+
+
+            <!-- React.js -->
+            <div class="skill-card reveal" style="--d:.35s">
+                <div class="sk-icon"><i class="bi bi-filetype-js"></i></div>
+                <div class="sk-info">
+                    <div class="sk-top"><span>React.js</span><span class="sk-pct">50%</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="--w:50%"></div></div>
+                </div>
+            </div>
+
+            <!-- MySQL -->
+            <div class="skill-card reveal" style="--d:.45s">
+                <div class="sk-icon"><i class="bi bi-database"></i></div>
+                <div class="sk-info">
+                    <div class="sk-top"><span>MySQL</span><span class="sk-pct">75%</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="--w:75%"></div></div>
+                </div>
+            </div>
+
+            <!-- Oracle -->
+            <div class="skill-card reveal" style="--d:.50s">
+                <div class="sk-icon"><i class="bi bi-database"></i></div>
+                <div class="sk-info">
+                    <div class="sk-top"><span>Oracle SQL</span><span class="sk-pct">65%</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="--w:65%"></div></div>
+                </div>
+            </div>
+
+            <!-- Computer Repair -->
+            <div class="skill-card reveal" style="--d:.55s">
+                <div class="sk-icon"><i class="bi bi-pc-display"></i></div>
+                <div class="sk-info">
+                    <div class="sk-top"><span>Computer Repair & Maintenance</span><span class="sk-pct">80%</span></div>
+                    <div class="sk-track"><div class="sk-fill" style="--w:80%"></div></div>
+                </div>
+            </div>
+                        </div>
+                        <div class="skills-side reveal" style="--d:.15s">
+                            <div class="skills-orb-wrap">
+                                <div class="orb-ring"></div>
+                                <div class="orb-ring"></div>
+                                <div class="orb-core">S</div>
+                            </div>
+                            <div>
+                                <h3 style="font-family:var(--serif);font-size:1.6rem;font-weight:900;margin-bottom:10px;">Crafting with<br><span style="color:var(--sakura);">Precision</span></h3>
+                                <p style="color:var(--muted);font-size:.9rem;max-width:280px;line-height:1.8;">Every skill bar represents hours of practice, real projects, and a commitment to continuous growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+   <!-- ══ SERVICES ══ -->
+            <section id="services" class="services">
+                <div class="kanji-bg" style="font-size:250px;bottom:-40px;right:-20px;">仕</div>
+
+                <div class="section-inner col">
+
+                    <div class="section-head reveal">
+                        <p class="section-tag">Services</p>
+                        <h2 class="section-title">What I <span>Offer</span></h2>
+                    </div>
+
+                    <div class="svc-grid">
+
+                        <!-- 01 -->
+                        <div class="svc-card reveal" style="--d:.05s">
+                            <span class="svc-num">01</span>
+
+                            <div class="svc-icon-wrap">
+                                <i class="bi bi-code-slash svc-icon"></i>
+                            </div>
+
+                            <h3>Web Development</h3>
+
+                            <p>
+                                Creating modern and responsive websites using HTML, CSS,
+                                JavaScript, Bootstrap, PHP, Laravel, and React.js.
+                            </p>
+
+                            <div class="svc-arrow">
+                                <i class="bi bi-arrow-up-right"></i>
+                            </div>
+                        </div>
+
+
+                        <!-- 02 -->
+                        <div class="svc-card reveal" style="--d:.10s">
+                            <span class="svc-num">02</span>
+
+                            <div class="svc-icon-wrap">
+                                <i class="bi bi-window-stack svc-icon"></i>
+                            </div>
+
+                            <h3>Software Development</h3>
+
+                            <p>
+                                Developing desktop and application projects using C#,
+                                Java, C++, and Object-Oriented Programming concepts.
+                            </p>
+
+                            <div class="svc-arrow">
+                                <i class="bi bi-arrow-up-right"></i>
+                            </div>
+                        </div>
+
+
+                        <!-- 03 -->
+                        <div class="svc-card reveal" style="--d:.15s">
+                            <span class="svc-num">03</span>
+
+                            <div class="svc-icon-wrap">
+                                <i class="bi bi-database-fill svc-icon"></i>
+                            </div>
+
+                            <h3>Database & API</h3>
+
+                            <p>
+                                Working with MySQL, SQLite, SQL Server, Oracle Database,
+                                CRUD operations, database connections, and REST APIs.
+                            </p>
+
+                            <div class="svc-arrow">
+                                <i class="bi bi-arrow-up-right"></i>
+                            </div>
+                        </div>
+
+
+                        <!-- 04 -->
+                        <div class="svc-card reveal" style="--d:.20s">
+                            <span class="svc-num">04</span>
+
+                            <div class="svc-icon-wrap">
+                                <i class="bi bi-pc-display svc-icon"></i>
+                            </div>
+
+                            <h3>Computer Services</h3>
+
+                            <p>
+                                Computer hardware installation, maintenance, troubleshooting,
+                                Windows installation, software installation, and system setup.
+                            </p>
+
+                            <div class="svc-arrow">
+                                <i class="bi bi-arrow-up-right"></i>
+                            </div>
+                        </div>
+
+
+                        <!-- 05 -->
+                        <div class="svc-card reveal" style="--d:.25s">
+                            <span class="svc-num">05</span>
+
+                            <div class="svc-icon-wrap">
+                                <i class="bi bi-phone-fill svc-icon"></i>
+                            </div>
+
+                            <h3>Responsive Design</h3>
+
+                            <p>
+                                Designing responsive interfaces that work smoothly across
+                                mobile phones, tablets, laptops, and desktop screens.
+                            </p>
+
+                            <div class="svc-arrow">
+                                <i class="bi bi-arrow-up-right"></i>
+                            </div>
+                        </div>
+
+
+                        <!-- 06 -->
+                        <div class="svc-card reveal" style="--d:.30s">
+                            <span class="svc-num">06</span>
+
+                            <div class="svc-icon-wrap">
+                                <i class="bi bi-tools svc-icon"></i>
+                            </div>
+
+                            <h3>Technical Support</h3>
+
+                            <p>
+                                Troubleshooting computer and software issues, configuring
+                                systems, installing applications, and helping maintain
+                                reliable technology environments.
+                            </p>
+
+                            <div class="svc-arrow">
+                                <i class="bi bi-arrow-up-right"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- ══ PORTFOLIO ══ -->
+            <section id="portfolio" class="portfolio">
+                <div class="kanji-bg" style="font-size:240px;top:-30px;left:-20px;">作</div>
+                <div class="section-inner col" style="align-items:center;">
+                    <div class="section-head reveal" style="align-self:flex-start;">
+                        <p class="section-tag">Portfolio</p>
+                        <h2 class="section-title">Selected <span>Projects</span></h2>
+                    </div>
+                    <div class="proj-list" style="position:relative;z-index:2;">
+                        <div class="proj-card reveal" style="--d:.05s">
+                            <span class="proj-num">01</span>
+                            <div class="proj-meta">
+                                <span class="proj-tag">Web</span>
+                                <span class="proj-year">2026</span>
+                            </div>
+                            <div class="proj-body">
+                                <h3>Personal Portfolio</h3>
+                                <p>A responsive, animated developer portfolio showcasing skills, services, and projects. Built with vanilla HTML, CSS, and JavaScript.</p>
+                                <div class="proj-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                            </div>
+                            <a href="index.html" class="proj-link" aria-label="View project"><i class="bi bi-arrow-up-right"></i></a>
+                        </div>
+                        <div class="proj-card reveal" style="--d:.15s">
+                            <span class="proj-num">02</span>
+                            <div class="proj-meta">
+                                <span class="proj-tag">Weather</span>
+                                <span class="proj-year">2025</span>
+                            </div>
+                            <div class="proj-body">
+                                <h3>Weather App</h3>
+                                <p>A responsive weather app that shows the current weather conditions in a city.</p>
+                                <div class="proj-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                            </div>
+                            <a href="https://weatherappidea.vercel.app" class="proj-link" aria-label="View project"><i class="bi bi-arrow-up-right"></i></a>
+                        </div>
+                        <div class="proj-card reveal" style="--d:.25s">
+                            <span class="proj-num">03</span>
+                            <div class="proj-meta">
+                                <span class="proj-tag">Pizza</span>
+                                <span class="proj-year">2025</span>
+                            </div>
+                            <div class="proj-body">
+                                <h3>Pizza App</h3>
+                                <p>A responsive pizza app that shows the current pizza prices and offers.</p>
+                                <div class="proj-tech"><span>HTML</span><span>CSS</span><span>C#</span><span>.NET</span></div>
+                            </div>
+                            <a href="https://pizzaapp-pizzaapp.up.railway.app" class="proj-link" aria-label="View project"><i class="bi bi-arrow-up-right"></i></a>
+                        </div>
+                        <div class="proj-card placeholder reveal" style="--d:.35s">
+                            <span class="proj-num">04</span>
+                            <div class="proj-meta">
+                                <span class="proj-tag">Coming Soon</span>
+                                <span class="proj-year">—</span>
+                            </div>
+                            <div class="proj-body">
+                                <h3>Project Placeholder</h3>
+                                <p>Space reserved for a future project. Replace this placeholder with project details, images, and links when ready.</p>
+                                <div class="proj-tech"><span>—</span></div>
+                            </div>
+                            <a href="#" class="proj-link" aria-label="View project"><i class="bi bi-arrow-up-right"></i></a>
+                        </div>
+                        <div class="proj-card placeholder reveal" style="--d:.45s">
+                            <span class="proj-num">05</span>
+                            <div class="proj-meta">
+                                <span class="proj-tag">Coming Soon</span>
+                                <span class="proj-year">—</span>
+                            </div>
+                            <div class="proj-body">
+                                <h3>Project Placeholder</h3>
+                                <p>Space reserved for a future project. Replace this placeholder with project details, images, and links when ready.</p>
+                                <div class="proj-tech"><span>—</span></div>
+                            </div>
+                            <a href="#" class="proj-link" aria-label="View project"><i class="bi bi-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
 <!-- ══ CONTACT ══ -->
 <section id="contact" class="contact">
@@ -338,11 +874,11 @@
 <!-- ══ FOOTER ══ -->
 <footer>
     <div class="footer-inner">
-        <a href="#home" class="footer-logo"><span>ヴ</span>ysal</a>
+        <a href="#home" class="footer-logo"><span>ヴ</span>Z1ha</a>
         <p>&copy; 2026 Seyha. All Rights Reserved.</p>
         <div class="footer-socials">
-            <a href="https://github.com/pheaktra-biu/myporfolio.git" title="GitHub"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/prak-sereyvisal1001" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/nouchseyha" title="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/seyha-nouch-437608418/" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
             <a href="https://t.me/the_seyha" title="Telegram"><i class="bi bi-telegram"></i></a>
         </div>
     </div>

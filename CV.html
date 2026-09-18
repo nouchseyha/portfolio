@@ -1,0 +1,1700 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CV | NOUCH SEYHA</title>
+
+    <meta name="description"
+          content="Professional CV of NOUCH SEYHA - IT Support and Information Technology student.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Your main style -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =====================================================
+           CV VARIABLES
+        ===================================================== */
+
+        :root {
+            --cv-bg: rgba(255,255,255,.025);
+            --cv-border: rgba(255,255,255,.09);
+            --cv-soft: rgba(107,248,255,.06);
+
+            --cv-strong: #6bfff0;
+            --cv-gold: #ffd166;
+
+            --pink: #ff6b9d;
+            --text: #ffffff;
+            --muted: #b9c0ca;
+
+            --serif: "Noto Serif JP", serif;
+            --head: "Rajdhani", sans-serif;
+            --mono: "Share Tech Mono", monospace;
+        }
+
+
+        /* =====================================================
+           BODY
+        ===================================================== */
+
+        body {
+            background: var(--bg);
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .cv-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 70px;
+
+            z-index: 9999;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            box-sizing: border-box;
+
+            background: rgba(10, 10, 18, .88);
+
+            border-bottom: 1px solid rgba(255,255,255,.08);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+
+        .cv-logo {
+            text-decoration: none;
+
+            font-family: var(--mono);
+
+            font-size: 1rem;
+            font-weight: 700;
+
+            color: var(--text);
+
+            letter-spacing: 2px;
+        }
+
+
+        .cv-logo span {
+            color: var(--pink);
+        }
+
+
+        .cv-nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 25px;
+
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .cv-nav-links a {
+            position: relative;
+
+            text-decoration: none;
+
+            color: var(--muted);
+
+            font-family: var(--head);
+
+            font-size: .9rem;
+            font-weight: 600;
+
+            letter-spacing: 1px;
+
+            transition: .3s ease;
+        }
+
+
+        .cv-nav-links a:hover,
+        .cv-nav-links a.active {
+            color: var(--pink);
+        }
+
+
+        .cv-nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--pink);
+
+            transition: .3s ease;
+        }
+
+
+        .cv-nav-links a:hover::after,
+        .cv-nav-links a.active::after {
+            width: 100%;
+        }
+
+
+        .cv-menu {
+            display: none;
+
+            border: none;
+
+            background: transparent;
+
+            color: white;
+
+            font-size: 1.5rem;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           CV PAGE
+        ===================================================== */
+
+        .cv-page {
+            min-height: 100vh;
+
+            padding: 110px 5% 60px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .cv-shell {
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+            background: var(--cv-bg);
+
+            border: 1px solid var(--cv-border);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.25);
+
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           CV HEADER
+        ===================================================== */
+
+        .cv-header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+            padding: 32px 34px 24px;
+
+            border-bottom: 1px solid var(--cv-border);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(107,248,255,.04),
+                    rgba(255,107,157,.03)
+                );
+        }
+
+
+        .cv-name-block h1 {
+            font-family: var(--serif);
+
+            font-size: clamp(2rem, 4vw, 3.2rem);
+
+            line-height: 1.1;
+
+            margin: 0 0 10px;
+
+            letter-spacing: 2px;
+
+            color: var(--text);
+        }
+
+
+        .cv-role {
+            font-family: var(--mono);
+
+            color: var(--pink);
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            font-size: .75rem;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .cv-contact {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px 14px;
+
+            justify-content: flex-end;
+
+            color: var(--muted);
+
+            font-family: var(--head);
+
+            font-size: .84rem;
+        }
+
+
+        .cv-contact span {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background: rgba(255,255,255,.025);
+
+            border: 1px solid var(--cv-border);
+
+            padding: 8px 12px;
+
+            border-radius: 999px;
+        }
+
+
+        .cv-contact i {
+            color: var(--pink);
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .cv-actions {
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            padding: 18px 24px 0;
+        }
+
+
+        .cv-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 10px 18px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-family: var(--head);
+
+            font-size: .82rem;
+
+            font-weight: 700;
+
+            letter-spacing: .5px;
+
+            cursor: pointer;
+
+            transition: .3s ease;
+        }
+
+
+        .cv-btn-primary {
+            border: 1px solid var(--pink);
+
+            background: var(--pink);
+
+            color: white;
+        }
+
+
+        .cv-btn-primary:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 25px rgba(255,107,157,.25);
+        }
+
+
+        .cv-btn-outline {
+            border: 1px solid var(--cv-border);
+
+            background: transparent;
+
+            color: var(--text);
+        }
+
+
+        .cv-btn-outline:hover {
+            border-color: var(--pink);
+
+            color: var(--pink);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           CV BODY
+        ===================================================== */
+
+        .cv-body {
+            display: grid;
+
+            grid-template-columns: 320px 1fr;
+
+            gap: 0;
+        }
+
+
+        .cv-aside,
+        .cv-main {
+            padding: 28px 24px 20px;
+        }
+
+
+        .cv-aside {
+            background: rgba(255,255,255,.015);
+
+            border-right: 1px solid var(--cv-border);
+        }
+
+
+        .cv-main {
+            background: rgba(255,255,255,.008);
+        }
+
+
+        /* =====================================================
+           SECTION
+        ===================================================== */
+
+        .cv-section {
+            margin-bottom: 28px;
+        }
+
+
+        .cv-section:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .cv-section-title {
+            font-family: var(--mono);
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            font-size: .72rem;
+
+            color: var(--pink);
+
+            margin: 0 0 14px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .cv-section-title::before {
+            content: "";
+
+            width: 18px;
+
+            height: 1px;
+
+            background: var(--pink);
+
+            display: inline-block;
+        }
+
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        .cv-card {
+            background: rgba(255,255,255,.02);
+
+            border: 1px solid var(--cv-border);
+
+            border-radius: 12px;
+
+            padding: 16px 18px;
+        }
+
+
+        .cv-card p,
+        .cv-card li,
+        .cv-item p,
+        .cv-item li {
+            color: var(--muted);
+
+            line-height: 1.7;
+
+            font-size: .9rem;
+        }
+
+
+        .cv-card p {
+            margin: 0;
+        }
+
+
+        .cv-card ul,
+        .cv-item ul {
+            list-style: disc;
+
+            padding-left: 18px;
+
+            margin: 0;
+        }
+
+
+        .cv-card li,
+        .cv-item li {
+            margin-bottom: 5px;
+        }
+
+
+        .cv-card li:last-child,
+        .cv-item li:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =====================================================
+           CV ITEMS
+        ===================================================== */
+
+        .cv-item {
+            padding: 18px 0;
+
+            border-bottom: 1px solid var(--cv-border);
+        }
+
+
+        .cv-item:first-child {
+            padding-top: 5px;
+        }
+
+
+        .cv-item:last-child {
+            border-bottom: none;
+        }
+
+
+        .cv-item-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: baseline;
+
+            gap: 12px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .cv-item-header h3 {
+            font-family: var(--head);
+
+            font-size: 1.08rem;
+
+            font-weight: 700;
+
+            color: var(--text);
+
+            margin: 0;
+        }
+
+
+        .cv-item-header span {
+            font-family: var(--mono);
+
+            color: var(--muted);
+
+            font-size: .7rem;
+
+            letter-spacing: 1px;
+
+            white-space: nowrap;
+        }
+
+
+        .cv-item p {
+            margin: 0 0 8px;
+        }
+
+
+        /* =====================================================
+           SKILL TAGS
+        ===================================================== */
+
+        .skill-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+        }
+
+
+        .skill-tag {
+            padding: 6px 9px;
+
+            border-radius: 7px;
+
+            background: rgba(107,248,255,.05);
+
+            border: 1px solid rgba(107,248,255,.15);
+
+            color: var(--text);
+
+            font-family: var(--head);
+
+            font-size: .78rem;
+
+            letter-spacing: .3px;
+        }
+
+
+        /* =====================================================
+           PRINT
+        ===================================================== */
+
+        @media print {
+
+            @page {
+                size: A4 portrait;
+
+                margin: 8mm;
+            }
+
+
+            html,
+            body {
+                background: white !important;
+
+                color: #111 !important;
+
+                overflow: visible !important;
+            }
+
+
+            /* Hide everything outside CV */
+
+            body * {
+                visibility: hidden !important;
+            }
+
+
+            .cv-page,
+            .cv-page * {
+                visibility: visible !important;
+            }
+
+
+            /* Hide navbar */
+
+            .cv-navbar,
+            .cv-actions,
+            #sakura-canvas,
+            .grid-overlay,
+            .scanlines,
+            .cursor-dot,
+            .cursor-ring,
+            nav,
+            footer,
+            .footer {
+                display: none !important;
+            }
+
+
+            .cv-page {
+                position: static !important;
+
+                padding: 0 !important;
+
+                min-height: auto !important;
+            }
+
+
+            .cv-shell {
+                width: 100% !important;
+
+                max-width: 100% !important;
+
+                margin: 0 !important;
+
+                border: none !important;
+
+                border-radius: 0 !important;
+
+                box-shadow: none !important;
+
+                background: white !important;
+
+                color: #111 !important;
+            }
+
+
+            .cv-header {
+                padding: 8px 10px 12px !important;
+
+                background: white !important;
+
+                border-bottom: 1px solid #ccc !important;
+            }
+
+
+            .cv-name-block h1 {
+                color: #111 !important;
+
+                font-size: 24pt !important;
+
+                margin-bottom: 5px !important;
+            }
+
+
+            .cv-role {
+                color: #333 !important;
+
+                font-size: 8pt !important;
+            }
+
+
+            .cv-contact {
+                color: #333 !important;
+
+                font-size: 7.5pt !important;
+
+                gap: 5px !important;
+            }
+
+
+            .cv-contact span {
+                padding: 3px 5px !important;
+
+                background: white !important;
+
+                border: none !important;
+            }
+
+
+            .cv-contact i {
+                color: #333 !important;
+            }
+
+
+            .cv-body {
+                grid-template-columns: 30% 70% !important;
+            }
+
+
+            .cv-aside,
+            .cv-main {
+                padding: 12px 12px 8px !important;
+
+                background: white !important;
+            }
+
+
+            .cv-aside {
+                border-right: 1px solid #ccc !important;
+            }
+
+
+            .cv-section {
+                margin-bottom: 12px !important;
+            }
+
+
+            .cv-section-title {
+                color: #222 !important;
+
+                font-size: 7.5pt !important;
+
+                margin-bottom: 6px !important;
+            }
+
+
+            .cv-section-title::before {
+                background: #222 !important;
+            }
+
+
+            .cv-card {
+                background: white !important;
+
+                border: 1px solid #ddd !important;
+
+                border-radius: 5px !important;
+
+                padding: 7px 9px !important;
+            }
+
+
+            .cv-card p,
+            .cv-card li,
+            .cv-item p,
+            .cv-item li {
+                color: #333 !important;
+
+                font-size: 7.5pt !important;
+
+                line-height: 1.35 !important;
+            }
+
+
+            .cv-item {
+                padding: 8px 0 !important;
+
+                border-bottom: 1px solid #ddd !important;
+            }
+
+
+            .cv-item-header {
+                margin-bottom: 3px !important;
+            }
+
+
+            .cv-item-header h3 {
+                color: #111 !important;
+
+                font-size: 9pt !important;
+            }
+
+
+            .cv-item-header span {
+                color: #555 !important;
+
+                font-size: 6.5pt !important;
+            }
+
+
+            .skill-tag {
+                color: #222 !important;
+
+                background: white !important;
+
+                border: 1px solid #ccc !important;
+
+                font-size: 7pt !important;
+
+                padding: 3px 5px !important;
+            }
+
+
+            .cv-item,
+            .cv-card,
+            .cv-section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .cv-nav-links {
+                gap: 15px;
+            }
+
+
+            .cv-header {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .cv-contact {
+                justify-content: flex-start;
+            }
+
+
+            .cv-body {
+                grid-template-columns: 1fr;
+            }
+
+
+            .cv-aside {
+                border-right: none;
+
+                border-bottom: 1px solid var(--cv-border);
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .cv-navbar {
+                height: 60px;
+            }
+
+
+            .cv-menu {
+                display: block;
+            }
+
+
+            .cv-nav-links {
+                position: absolute;
+
+                top: 60px;
+
+                left: 0;
+
+                width: 100%;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 18px;
+
+                padding: 20px 5%;
+
+                box-sizing: border-box;
+
+                background: rgba(10,10,18,.97);
+
+                border-bottom: 1px solid rgba(255,255,255,.08);
+            }
+
+
+            .cv-nav-links.show {
+                display: flex;
+            }
+
+
+            .cv-page {
+                padding: 85px 4% 40px;
+            }
+
+
+            .cv-header {
+                padding: 24px 18px 20px;
+            }
+
+
+            .cv-name-block h1 {
+                font-size: 2rem;
+            }
+
+
+            .cv-contact {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .cv-actions {
+                padding-left: 18px;
+
+                padding-right: 18px;
+            }
+
+
+            .cv-aside,
+            .cv-main {
+                padding-left: 18px;
+
+                padding-right: 18px;
+            }
+
+
+            .cv-item-header {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .cv-item-header span {
+                white-space: normal;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <canvas id="sakura-canvas"></canvas>
+
+    <div class="grid-overlay"></div>
+
+    <div class="scanlines"></div>
+
+    <div class="cursor-dot"></div>
+
+    <div class="cursor-ring"></div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="cv-navbar">
+
+        <a href="index.html" class="cv-logo">
+            NOUCH SEYHA<span>.</span>
+        </a>
+
+
+        <button class="cv-menu" id="cvMenu">
+            <i class="bi bi-list"></i>
+        </button>
+
+
+        <ul class="cv-nav-links" id="cvNavLinks">
+
+           
+
+          <!-- =================================================
+                 ACTION BUTTONS
+            ================================================== -->
+            <li>
+             
+
+            <div class="cv-actions">
+
+                <button
+                    type="button"
+                    id="printCvBtn"
+                    class="cv-btn cv-btn-primary">
+
+                    <i class="bi bi-printer"></i>
+
+                    Print CV
+
+                </button>
+
+
+                <a
+                    href="index.html"
+                    class="cv-btn cv-btn-outline">
+
+                    <i class="bi bi-house"></i>
+
+                    Back to Portfolio
+
+                </a>
+
+            </div>
+            
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         CV
+    ====================================================== -->
+
+    <main class="cv-page">
+
+        <div class="cv-shell">
+
+
+            <!-- =================================================
+                 HEADER
+            ================================================== -->
+
+            <div class="cv-header">
+
+                <div class="cv-name-block">
+
+                    <h1>NOUCH SEYHA</h1>
+
+                    <div class="cv-role">
+                        IT • INFORMATION TECHNOLOGY
+                    </div>
+
+                </div>
+
+
+                <div class="cv-contact">
+
+                    <span>
+                        <i class="bi bi-envelope"></i>
+                        seyhazadow@gmail.com
+                    </span>
+
+                    <span>
+                        <i class="bi bi-telephone"></i>
+                        +855 88 811 0427
+                    </span>
+
+                    <span>
+                        <i class="bi bi-geo-alt"></i>
+                        Phnom Penh, Cambodia
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+           
+
+
+
+            <!-- =================================================
+                 BODY
+            ================================================== -->
+
+            <div class="cv-body">
+
+
+                <!-- =================================================
+                     LEFT SIDEBAR
+                ================================================== -->
+
+                <aside class="cv-aside">
+
+
+                    <!-- PROFILE -->
+
+                    <div class="cv-section">
+
+                        <h2 class="cv-section-title">
+                            Profile
+                        </h2>
+
+
+                        <div class="cv-card">
+
+                            <p>
+                                Information Technology student with
+                                practical interests in IT support,
+                                computer hardware, software installation,
+                                troubleshooting, web development, and
+                                database systems. Eager to learn, solve
+                                technical problems, and support users in
+                                a professional team environment.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TECHNICAL SKILLS -->
+
+                    <div class="cv-section">
+
+                        <h2 class="cv-section-title">
+                            Technical Skills
+                        </h2>
+
+
+                        <div class="cv-card">
+
+                            <div class="skill-tags">
+
+                                <span class="skill-tag">
+                                    Computer Repair
+                                </span>
+
+                                <span class="skill-tag">
+                                    Hardware Installation
+                                </span>
+
+                                <span class="skill-tag">
+                                    Software Installation
+                                </span>
+
+                                <span class="skill-tag">
+                                    Windows
+                                </span>
+
+                                <span class="skill-tag">
+                                    Troubleshooting
+                                </span>
+
+                                <span class="skill-tag">
+                                    Microsoft Office
+                                </span>
+
+                                <span class="skill-tag">
+                                    HTML
+                                </span>
+
+                                <span class="skill-tag">
+                                    CSS
+                                </span>
+
+                                <span class="skill-tag">
+                                    JavaScript
+                                </span>
+
+                                <span class="skill-tag">
+                                    Bootstrap
+                                </span>
+
+                                <span class="skill-tag">
+                                    React.js
+                                </span>
+
+                                <span class="skill-tag">
+                                    C#
+                                </span>
+
+                                <span class="skill-tag">
+                                    OOP
+                                </span>
+
+                                <span class="skill-tag">
+                                    C++
+                                </span>
+
+                                <span class="skill-tag">
+                                    Java
+                                </span>
+
+                                <span class="skill-tag">
+                                    PHP
+                                </span>
+
+                                <span class="skill-tag">
+                                    Laravel
+                                </span>
+
+                                <span class="skill-tag">
+                                    MySQL
+                                </span>
+
+                                <span class="skill-tag">
+                                    SQLite
+                                </span>
+
+                                <span class="skill-tag">
+                                    SQL Server
+                                </span>
+
+                                <span class="skill-tag">
+                                    Oracle Database
+                                </span>
+
+                                <span class="skill-tag">
+                                    REST API
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PROFESSIONAL SKILLS -->
+
+                    <div class="cv-section">
+
+                        <h2 class="cv-section-title">
+                            Professional Skills
+                        </h2>
+
+
+                        <div class="cv-card">
+
+                            <ul>
+
+                                <li>
+                                    Communication & Customer Support
+                                </li>
+
+                                <li>
+                                    Problem Solving
+                                </li>
+
+                                <li>
+                                    Fast Learning & Adaptability
+                                </li>
+
+                                <li>
+                                    Teamwork & Collaboration
+                                </li>
+
+                                <li>
+                                    Responsibility & Time Management
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- LANGUAGES -->
+
+                    <div class="cv-section">
+
+                        <h2 class="cv-section-title">
+                            Languages
+                        </h2>
+
+
+                        <div class="cv-card">
+
+                            <ul>
+
+                                <li>
+                                    Khmer — Native
+                                </li>
+
+                                <li>
+                                    English — Intermediate
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+
+
+                <!-- =================================================
+                     MAIN CONTENT
+                ================================================== -->
+
+                <main class="cv-main">
+
+
+                    <!-- CAREER OBJECTIVE -->
+
+                    <div class="cv-section">
+
+                        <h2 class="cv-section-title">
+                            Career Objective
+                        </h2>
+
+
+                        <div class="cv-card">
+
+                            <p>
+                               To develop my career in the technology field where I can apply my knowledge of programming, web development, databases, computer systems, and software technologies. I am eager to gain practical experience, contribute to real-world projects, learn from experienced professionals, and continue developing my technical and professional skills.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- EDUCATION -->
+
+                    <div class="cv-section">
+
+                        <h2 class="cv-section-title">
+                            Education
+                        </h2>
+
+
+                        <div class="cv-item">
+
+                            <div class="cv-item-header">
+
+                                <h3>
+                                    BELTEI International University
+                                </h3>
+
+                                <span>
+                                    2024 – Present
+                                </span>
+
+                            </div>
+
+
+                            <p>
+                                Bachelor Degree Student in
+                                Information Technology and Science
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="cv-item">
+
+                            <div class="cv-item-header">
+
+                                <h3>
+                                    Angroka High School
+                                </h3>
+
+                                <span>
+                                    2022 – 2024
+                                </span>
+
+                            </div>
+
+
+                            <p>
+                                Completed Baccalaureate
+                                (High School Diploma)
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="cv-item">
+
+                            <div class="cv-item-header">
+
+                                <h3>
+                                    Angroka Secondary School
+                                </h3>
+
+                                <span>
+                                    2019 – 2021
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PROJECTS -->
+
+                    <div class="cv-section">
+
+                        <h2 class="cv-section-title">
+                            Projects & Practical Experience
+                        </h2>
+
+
+                        <!-- PROJECT 1 -->
+
+                        <div class="cv-item">
+
+                            <div class="cv-item-header">
+
+                                <h3>
+                                    Computer & IT Practical Work
+                                </h3>
+
+                                <span>
+                                    2025 – Present
+                                </span>
+
+                            </div>
+
+
+                            <ul>
+
+                                <li>
+                                    Computer hardware installation,
+                                    repair, maintenance, and software
+                                    configuration.
+                                </li>
+
+                                <li>
+                                    Windows installation, setup,
+                                    troubleshooting, and basic user
+                                    support.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+
+                        <!-- PROJECT 2 -->
+
+                        <div class="cv-item">
+
+                            <div class="cv-item-header">
+
+                                <h3>
+                                    Web Development & Database Projects
+                                </h3>
+
+                                <span>
+                                    2025 – Present
+                                </span>
+
+                            </div>
+
+
+                            <ul>
+
+                                <li>
+                                    Built academic and personal projects
+                                    using HTML, CSS, JavaScript,
+                                    Bootstrap, PHP, Laravel, C#, and Java.
+                                </li>
+
+                                <li>
+                                    Worked with MySQL, SQLite, SQL Server,
+                                    Oracle Database, and REST APIs.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+
+                        <!-- PROJECT 3 -->
+
+                        <div class="cv-item">
+
+                            <div class="cv-item-header">
+
+                                <h3>
+                                    E-Commerce / Management System
+                                </h3>
+
+                                <span>
+                                    Academic Project
+                                </span>
+
+                            </div>
+
+
+                            <ul>
+
+                                <li>
+                                    Developed web-based systems with
+                                    product, category, cart, order,
+                                    database, and API functionality.
+                                </li>
+
+                                <li>
+                                    Applied Laravel, PHP, MySQL,
+                                    Bootstrap, HTML, CSS, and JavaScript.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+
+                        <!-- PROJECT 4 -->
+
+                        <div class="cv-item">
+
+                            <div class="cv-item-header">
+
+                                <h3>
+                                    C# Desktop Application
+                                </h3>
+
+                                <span>
+                                    Academic Project
+                                </span>
+
+                            </div>
+
+
+                            <ul>
+
+                                <li>
+                                    Developed Windows Forms applications
+                                    with login, product management,
+                                    categories, sales, and database
+                                    functionality.
+                                </li>
+
+                                <li>
+                                    Applied C#, OOP, SQL Server, and
+                                    Oracle database concepts.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- REFERENCES -->
+
+                    <div class="cv-section">
+
+                        <h2 class="cv-section-title">
+                            References
+                        </h2>
+
+
+                        <div class="cv-card">
+
+                            <p>
+                                Available upon request.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </main>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* ================================================
+           PRINT CV
+        ================================================= */
+
+        const printButton =
+            document.getElementById("printCvBtn");
+
+        if (printButton) {
+
+            printButton.addEventListener("click", function () {
+
+                window.print();
+
+            });
+
+        }
+
+
+        /* ================================================
+           MOBILE NAVBAR
+        ================================================= */
+
+        const menuButton =
+            document.getElementById("cvMenu");
+
+        const navLinks =
+            document.getElementById("cvNavLinks");
+
+
+        if (menuButton && navLinks) {
+
+            menuButton.addEventListener("click", function () {
+
+                navLinks.classList.toggle("show");
+
+            });
+
+
+            navLinks.querySelectorAll("a").forEach(function(link) {
+
+                link.addEventListener("click", function() {
+
+                    navLinks.classList.remove("show");
+
+                });
+
+            });
+
+        }
+
+    </script>
+
+
+    <!-- Your existing JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
